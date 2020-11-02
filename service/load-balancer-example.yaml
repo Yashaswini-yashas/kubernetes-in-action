@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: kubia
+  name: kubia
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: kubia
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: kubia
+    spec:
+      containers:
+      - image: yashaswini1234/kubia
+        name: kubia
+        ports:
+        - containerPort: 8080
+
